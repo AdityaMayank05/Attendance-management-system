@@ -26,13 +26,17 @@ const Login = () => {
         setMessage('Login successful!');
         const userRole = response.data.role;
 
+        // Save email ID to local storage
+        localStorage.setItem('userEmail', email);
+
         // Redirect based on user role
         if (userRole === 'admin') {
           navigate('/admin');
         } else if (userRole === 'student') {
           navigate('/student');
         } else if (userRole === 'teacher') {
-          navigate('/teacher');         }
+          navigate('/teacher');
+        }
       } else {
         setMessage('Error: ' + response.data.error);
       }

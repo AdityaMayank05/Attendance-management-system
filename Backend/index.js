@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const createUserRoute = require('./Routes/CreateUser'); // Ensure this path is correct
 const studentsRoute = require('./Routes/students');
 const teachersRoute = require('./Routes/teachers');
+const attendanceRoutes = require('./Routes/attendance');
 
 const app = express();
 const port = 5000;
@@ -33,6 +34,7 @@ app.use(express.json());
 app.use('/api', createUserRoute);
 app.use('/api', studentsRoute);
 app.use('/api', teachersRoute);
+app.use('/api/attendance', attendanceRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
